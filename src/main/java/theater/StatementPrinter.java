@@ -50,6 +50,17 @@ public class StatementPrinter {
         return result;
     }
 
+    /**
+     * Formats the provided amount in US currency with cents precision.
+     *
+     * @param amount the amount in cents
+     * @return the formatted currency string
+     */
+    private String usd(int amount) {
+        return NumberFormat.getCurrencyInstance(Locale.US)
+                .format(amount / Constants.PERCENT_FACTOR);
+    }
+
     private int getAmount(Performance performance) {
         final Play play = getPlay(performance);
         int result;
